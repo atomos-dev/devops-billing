@@ -1,0 +1,22 @@
+# Docker Compose for devops-billing
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - billing-data:/app/data
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=/app/data/billing.db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/auth/session"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  billing-data:

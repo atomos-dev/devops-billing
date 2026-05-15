@@ -1,0 +1,1 @@
+ALTER TABLE `resources` ADD `bandwidth_allowance_tib` real;

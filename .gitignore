@@ -59,7 +59,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# runtime data — exclude SQLite DB and browser session state, keep CSV bills
+# runtime data — exclude SQLite DB, browser session state, and bandwidth CSVs (contain real team UUID / resource IDs)
 /data/browser-state/
 /data/backups/
 /data/*.db
@@ -68,6 +68,7 @@ next-env.d.ts
 /data/*.db-journal
 /data/*.png
 /data/*debug*.json
+/data/bandwidth_report*.csv
 
 # local database files
 *.sqlite
